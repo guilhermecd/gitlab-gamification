@@ -37,6 +37,8 @@
       %span.middle-dot-divider
         @#{@user.username}
       %span.middle-dot-divider
+        Score: #{@user.score}
+      %span.middle-dot-divider
         Member since #{@user.created_at.to_s(:medium)}
 
     - if @user.bio.present?

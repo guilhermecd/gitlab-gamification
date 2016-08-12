@@ -3,7 +3,42 @@ class Projects::NotesController < Projects::ApplicationController
   before_action :authorize_read_note!
   before_action :authorize_create_note!, only: [:create]
   before_action :authorize_admin_note!, only: [:update, :destroy]
-  before_action :find_current_user_notes, except: [:destroy, :delete_attachment, :award_toggle]
+  before_action :find_current_user_notes, except: [:upvote, :downvote, :destroy, :delete_attachment, :award_toggle]
+
+  def upvote
+    @note = Note.find(params[:id])
+    if !note.voted_on_by? current_user
+      @note.liked_by current_user
+
+      issue = Issue.find(params[:issue_id])
+      usuario = User.find(@note.author_id)
+
+      if current_user.id == issue.author_id
+        usuario.score = usuario.score + 50
+      else
+        usuario.score = usuario.score + 30
+      end
+
+      usuario.save
+    end    
+    redirect_to :back
+  end
+
+  def downvote
+    @note = Note.find(params[:id])
+    if !note.voted_on_by? current_user
+      @note.downvote_from current_user
+      if (note.get_downvotes.size % 3) == 0
+        usuario = User.find(@note.author_id)
+        usuario.score = usuario.score - 50
+        if usuario.score < 0
+          usuario.score = 0
+        end
+        usuario.save
+      end
+    end
+    redirect_to :back
+  end
 
   def index
     current_fetched_at = Time.now.to_i

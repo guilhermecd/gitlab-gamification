@@ -4,6 +4,11 @@
       = icon('bookmark fw')
       %span
         Projects
+  = nav_link() do
+    = link_to "/rank", title: 'Rank', data: {placement: 'bottom'} do
+      = icon('bar-chart fw')
+      %span
+        Rank      
   = nav_link(controller: :todos) do
     = link_to dashboard_todos_path, title: 'Todos' do
       = icon('bell fw')

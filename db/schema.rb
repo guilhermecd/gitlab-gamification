@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530150109) do
+ActiveRecord::Schema.define(version: 20160812134050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -635,10 +635,10 @@ ActiveRecord::Schema.define(version: 20160530150109) do
     t.string   "line_code"
     t.string   "commit_id"
     t.integer  "noteable_id"
-    t.boolean  "system",            default: false, null: false
+    t.boolean  "system",        default: false, null: false
     t.text     "st_diff"
     t.integer  "updated_by_id"
-    t.boolean  "is_award",          default: false, null: false
+    t.boolean  "is_award",      default: false, null: false
     t.string   "type"
   end
 
@@ -990,6 +990,7 @@ ActiveRecord::Schema.define(version: 20160530150109) do
     t.datetime "otp_grace_period_started_at"
     t.boolean  "ldap_email",                  default: false, null: false
     t.boolean  "external",                    default: false
+    t.integer  "score"
   end
 
   add_index "users", ["admin"], name: "index_users_on_admin", using: :btree
@@ -1015,6 +1016,21 @@ ActiveRecord::Schema.define(version: 20160530150109) do
   add_index "users_star_projects", ["project_id"], name: "index_users_star_projects_on_project_id", using: :btree
   add_index "users_star_projects", ["user_id", "project_id"], name: "index_users_star_projects_on_user_id_and_project_id", unique: true, using: :btree
   add_index "users_star_projects", ["user_id"], name: "index_users_star_projects_on_user_id", using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   create_table "web_hooks", force: :cascade do |t|
     t.string   "url",                     limit: 2000

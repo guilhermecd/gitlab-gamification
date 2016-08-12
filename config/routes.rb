@@ -3,6 +3,8 @@ require 'sidekiq/cron/web'
 require 'api/api'
 
 Rails.application.routes.draw do
+  get "rank" => "rank#show"
+
   if Gitlab::Sherlock.enabled?
     namespace :sherlock do
       resources :transactions, only: [:index, :show] do
@@ -748,9 +750,11 @@ Rails.application.routes.draw do
 
         resources :group_links, only: [:index, :create, :destroy], constraints: { id: /\d+/ }
 
-        resources :notes, only: [:index, :create, :destroy, :update], constraints: { id: /\d+/ } do
+        resources :notes do
           member do
             delete :delete_attachment
+            put "like", to: "notes#upvote"
+            put "dislike", to: "notes#downvote"
           end
 
           collection do

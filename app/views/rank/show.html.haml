@@ -1,0 +1,13 @@
+%table.table.table-striped
+  %tr
+    %th
+      %strong Name
+    %th
+      %strong Username
+    %th 
+      %strong Score
+  - @usuarios.each do |usuario|
+    %tr
+      %td= usuario.name
+      %td= usuario.username
+      %td= usuario.score

@@ -3,6 +3,8 @@ source "https://rubygems.org"
 gem 'rails', '4.2.6'
 gem 'rails-deprecated_sanitizer', '~> 1.0.3'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Responders respond_to and respond_with
 gem 'responders', '~> 2.0'
 

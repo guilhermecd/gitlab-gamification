@@ -1,4 +1,5 @@
 class Note < ActiveRecord::Base
+  acts_as_votable
   extend ActiveModel::Naming
   include Gitlab::CurrentSettings
   include Participable
