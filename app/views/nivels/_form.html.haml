@@ -1,0 +1,16 @@
+= form_for @nivel do |f|
+  - if @nivel.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@nivel.errors.count, "error")} prohibited this nivel from being saved:"
+      %ul
+        - @nivel.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :nome_nivel
+    = f.text_field :nome_nivel
+  .field
+    = f.label :qtd_pontos
+    = f.number_field :qtd_pontos
+  .actions
+    = f.submit 'Save'

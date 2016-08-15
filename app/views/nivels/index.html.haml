@@ -1,0 +1,23 @@
+%h1 Listing nivels
+
+%table
+  %thead
+    %tr
+      %th Nome nivel
+      %th Qtd pontos
+      %th
+      %th
+      %th
+
+  %tbody
+    - @nivels.each do |nivel|
+      %tr
+        %td= nivel.nome_nivel
+        %td= nivel.qtd_pontos
+        %td= link_to 'Show', nivel
+        %td= link_to 'Edit', edit_nivel_path(nivel)
+        %td= link_to 'Destroy', nivel, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Nivel', new_nivel_path

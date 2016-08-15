@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Nome nivel:
+  = @nivel.nome_nivel
+%p
+  %b Qtd pontos:
+  = @nivel.qtd_pontos
+
+= link_to 'Edit', edit_nivel_path(@nivel)
+\|
+= link_to 'Back', nivels_path

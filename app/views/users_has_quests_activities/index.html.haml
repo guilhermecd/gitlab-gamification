@@ -1,0 +1,23 @@
+%h1 Listing users_has_quests_activities
+
+%table
+  %thead
+    %tr
+      %th Quests activities
+      %th Users
+      %th
+      %th
+      %th
+
+  %tbody
+    - @users_has_quests_activities.each do |users_has_quests_activity|
+      %tr
+        %td= users_has_quests_activity.quests_activities_id
+        %td= users_has_quests_activity.users_id
+        %td= link_to 'Show', users_has_quests_activity
+        %td= link_to 'Edit', edit_users_has_quests_activity_path(users_has_quests_activity)
+        %td= link_to 'Destroy', users_has_quests_activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Users has quests activity', new_users_has_quests_activity_path

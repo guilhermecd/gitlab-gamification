@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812134050) do
+ActiveRecord::Schema.define(version: 20160815205726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -388,6 +388,7 @@ ActiveRecord::Schema.define(version: 20160812134050) do
     t.datetime "updated_at"
     t.integer  "action"
     t.integer  "author_id"
+    t.integer  "pontuacao_obtida"
   end
 
   add_index "events", ["action"], name: "index_events_on_action", using: :btree
@@ -624,6 +625,13 @@ ActiveRecord::Schema.define(version: 20160812134050) do
   add_index "namespaces", ["type"], name: "index_namespaces_on_type", using: :btree
   add_index "namespaces", ["visibility_level"], name: "index_namespaces_on_visibility_level", using: :btree
 
+  create_table "nivels", force: :cascade do |t|
+    t.string   "nome_nivel"
+    t.integer  "qtd_pontos"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notes", force: :cascade do |t|
     t.text     "note"
     t.string   "noteable_type"
@@ -794,6 +802,26 @@ ActiveRecord::Schema.define(version: 20160812134050) do
   end
 
   add_index "protected_branches", ["project_id"], name: "index_protected_branches_on_project_id", using: :btree
+
+  create_table "quests", force: :cascade do |t|
+    t.string   "nome_quest"
+    t.integer  "nivels_id",    null: false
+    t.integer  "valor_pontos", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "quests_activities", force: :cascade do |t|
+    t.text     "descricao_tarefa"
+    t.integer  "quests_id"
+    t.integer  "qtd_pontos",       null: false
+    t.string   "parent_activity"
+    t.string   "target_type"
+    t.integer  "action"
+    t.string   "label",            null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "releases", force: :cascade do |t|
     t.string   "tag"
@@ -990,7 +1018,8 @@ ActiveRecord::Schema.define(version: 20160812134050) do
     t.datetime "otp_grace_period_started_at"
     t.boolean  "ldap_email",                  default: false, null: false
     t.boolean  "external",                    default: false
-    t.integer  "score"
+    t.integer  "score",                       default: 0
+    t.integer  "nivel",                       default: 1
   end
 
   add_index "users", ["admin"], name: "index_users_on_admin", using: :btree
@@ -1005,6 +1034,13 @@ ActiveRecord::Schema.define(version: 20160812134050) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
   add_index "users", ["username"], name: "index_users_on_username_trigram", using: :gin, opclasses: {"username"=>"gin_trgm_ops"}
+
+  create_table "users_has_quests_activities", force: :cascade do |t|
+    t.integer  "quests_activities_id", null: false
+    t.integer  "users_id",             null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users_star_projects", force: :cascade do |t|
     t.integer  "project_id", null: false

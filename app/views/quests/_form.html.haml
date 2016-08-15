@@ -1,0 +1,19 @@
+= form_for @quest do |f|
+  - if @quest.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@quest.errors.count, "error")} prohibited this quest from being saved:"
+      %ul
+        - @quest.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :nome_quest
+    = f.text_field :nome_quest
+  .field
+    = f.label :nivels_id
+    = f.number_field :nivels_id
+  .field
+    = f.label :valor_pontos
+    = f.number_field :valor_pontos
+  .actions
+    = f.submit 'Save'

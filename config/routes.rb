@@ -3,6 +3,10 @@ require 'sidekiq/cron/web'
 require 'api/api'
 
 Rails.application.routes.draw do
+  resources :users_has_quests_activities
+  resources :quests_activities
+  resources :quests
+  resources :nivels
   get "rank" => "rank#show"
 
   if Gitlab::Sherlock.enabled?

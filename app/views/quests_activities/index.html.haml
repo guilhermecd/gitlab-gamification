@@ -1,0 +1,33 @@
+%h1 Listing quests_activities
+
+%table
+  %thead
+    %tr
+      %th Descricao tarefa
+      %th Quests
+      %th Qtd pontos
+      %th Parent activity
+      %th Target type
+      %th Action
+      %th Label
+      %th
+      %th
+      %th
+
+  %tbody
+    - @quests_activities.each do |quests_activity|
+      %tr
+        %td= quests_activity.descricao_tarefa
+        %td= quests_activity.quests_id
+        %td= quests_activity.qtd_pontos
+        %td= quests_activity.parent_activity
+        %td= quests_activity.target_type
+        %td= quests_activity.action
+        %td= quests_activity.label
+        %td= link_to 'Show', quests_activity
+        %td= link_to 'Edit', edit_quests_activity_path(quests_activity)
+        %td= link_to 'Destroy', quests_activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Quests activity', new_quests_activity_path

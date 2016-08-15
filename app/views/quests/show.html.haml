@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Nome quest:
+  = @quest.nome_quest
+%p
+  %b Nivels:
+  = @quest.nivels_id
+%p
+  %b Valor pontos:
+  = @quest.valor_pontos
+
+= link_to 'Edit', edit_quest_path(@quest)
+\|
+= link_to 'Back', quests_path

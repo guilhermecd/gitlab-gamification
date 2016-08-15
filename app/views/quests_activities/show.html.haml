@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Descricao tarefa:
+  = @quests_activity.descricao_tarefa
+%p
+  %b Quests:
+  = @quests_activity.quests_id
+%p
+  %b Qtd pontos:
+  = @quests_activity.qtd_pontos
+%p
+  %b Parent activity:
+  = @quests_activity.parent_activity
+%p
+  %b Target type:
+  = @quests_activity.target_type
+%p
+  %b Action:
+  = @quests_activity.action
+%p
+  %b Label:
+  = @quests_activity.label
+
+= link_to 'Edit', edit_quests_activity_path(@quests_activity)
+\|
+= link_to 'Back', quests_activities_path
