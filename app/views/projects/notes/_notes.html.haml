@@ -9,9 +9,5 @@
   - @notes.each do |note|
     = render partial: "projects/notes/note", object: note, as: :note
     - if @issue.labels.where(title: 'Ajuda').first && !note.system
-      = button_to "Upvote", {:controller =>"notes", :action => "upvote", :id => note.id, :issue_id => @issue.id}, :method => :put do
-        = icon('thumbs-up')
-        = note.get_upvotes.size
-      = button_to "Downvote", {:controller =>"notes", :action => "downvote", :id => note.id, :issue_id => @issue.id}, :method => :put do
-        = icon('thumbs-down')
-        = note.get_downvotes.size
+      = link_to ("#{icon('thumbs-up')} #{note.get_upvotes.size}").html_safe, {:controller =>"notes", :action => "upvote", :id => note.id, :issue_id => @issue.id}, :method => :put
+      = link_to ("#{icon('thumbs-down')} #{note.get_downvotes.size}").html_safe, {:controller =>"notes", :action => "downvote", :id => note.id, :issue_id => @issue.id}, :method => :put
