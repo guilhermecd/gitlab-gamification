@@ -14,19 +14,20 @@ class Projects::NotesController < Projects::ApplicationController
       usuario = User.find(@note.author_id)
 
       if current_user.id == issue.author_id
-        usuario.score = usuario.score + 50
+        evento = Event.new(target_type: 'Thumbsup_Comment_Owner', target_id: 70, project_id: @note.project_id, action: 89, author_id: @note.author_id, pontuacao_obtida: 30)
       else
-        usuario.score = usuario.score + 30
+        evento = Event.new(target_type: 'Thumbsup_Comment', target_id: 71, project_id: @note.project_id, action: 90, author_id: @note.author_id, pontuacao_obtida: 20)
       end
-
-      usuario.save
+      evento.save
     end    
     redirect_to :back
   end
 
   def downvote
     @note = Note.find(params[:id])
+
     if !note.voted_on_by? current_user
+
       @note.downvote_from current_user
       if (note.get_downvotes.size % 3) == 0
         usuario = User.find(@note.author_id)
@@ -37,6 +38,7 @@ class Projects::NotesController < Projects::ApplicationController
         usuario.save
       end
     end
+
     redirect_to :back
   end
 
