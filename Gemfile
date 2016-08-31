@@ -304,6 +304,7 @@ group :development, :test do
   gem 'bundler-audit', require: false
 
   gem 'benchmark-ips', require: false
+
 end
 
 group :test do
@@ -338,3 +339,4 @@ gem "paranoia", "~> 2.0"
 
 # Health check
 gem 'health_check', '~> 1.5.1'
+

@@ -436,6 +436,7 @@ ActiveRecord::Schema.define(version: 20160815205726) do
     t.datetime "deleted_at"
     t.date     "due_date"
     t.integer  "moved_to_id"
+    t.string   "nivel"
   end
 
   add_index "issues", ["assignee_id"], name: "index_issues_on_assignee_id", using: :btree

@@ -1,13 +1,24 @@
+- page_title      'Rank'
+- header_title    'Rank'
+
+%h1 Rank
+Selecione a forma de exibição:
+%select.resp
+  %option{:value => "ponto"} Pontos
+  %option{:value => "nivel"} Nível
+  %option{:value => "quest"} Quest
+
 %table.table.table-striped
   %tr
     %th
       %strong Name
     %th
       %strong Username
-    %th 
+    %th
       %strong Score
-  - @usuarios.each do |usuario|
-    %tr
-      %td= usuario.name
-      %td= usuario.username
-      %td= usuario.score
+    - @usuarios.each do |usuario|
+      %tr
+        %td= usuario.name
+        %td= usuario.username
+        %td= usuario.score
+
