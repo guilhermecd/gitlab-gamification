@@ -8,6 +8,7 @@ class QuestsActivitiesController < ApplicationController
 
   # GET /quests_activities/1
   def show
+
   end
 
   # GET /quests_activities/new
