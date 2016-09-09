@@ -24,14 +24,14 @@
 %table.table.table-striped
   %tr
     %th
-      %strong Name
+      %strong Nome
     %th
       %strong Nível
     %th
       %strong Score
+    %th
     - @quests.each do |quest|
       %tr
-        %td= link_to quest.nome_quest , 'rank'
+        %td= link_to quest.nome_quest, 'description'
         %td= quest.nivels_id
         %td= quest.valor_pontos
-

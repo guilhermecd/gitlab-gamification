@@ -1,0 +1,10 @@
+- header_title    'Descrição das Atividades'
+
+%table.table.table-striped
+  %tr
+    %th
+      %strong Descrição
+    %th
+    - @quests_activities.each do |quests_activity|
+      %tr
+        %td= quests_activity.descricao_tarefa

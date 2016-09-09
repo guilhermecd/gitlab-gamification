@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :quests
   resources :nivels
   get "rank" => "rank#show"
+  get "description" => "quests_activities#description"
 
   if Gitlab::Sherlock.enabled?
     namespace :sherlock do
