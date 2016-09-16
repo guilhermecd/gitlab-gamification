@@ -261,6 +261,11 @@ group :development do
 
   # thin instead webrick
   gem 'thin', '~> 1.6.1'
+
+  # bootstrap gem
+  gem 'bootstrap-sass', '~> 3.3.0'
+  #gem 'autoprefixer-rails'
+  
 end
 
 group :development, :test do

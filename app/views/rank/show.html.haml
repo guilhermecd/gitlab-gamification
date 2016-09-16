@@ -3,10 +3,22 @@
 
 %h1 Rank
 Selecione a forma de exibição:
-%select.resp
-  %option{:value => "ponto"} Pontos
-  %option{:value => "nivel"} Nível
-  %option{:value => "quest"} Quest
+-#%select#opcao
+-#  - @teste.each do |opt|
+-#    %tr
+-#      %td= opt
+-#      %td= opt
+-#      %td= opt
+
+%select
+  %option{:value => "ponto", :selected => params[:format] == "ponto"}= "Pontos"
+  %option{:value => "nivel", :selected => params[:format] == "nivel"}= "Nível"
+  %option{:value => "quest", :selected => params[:format] == "quest"}= "Quest"
+  - 
+
+-#= select_tag :param_name, options_for_select([['Ponto', 'ponto'], ['Nível', 'nivel'], ['Quest', 'quest']], rank_path("pontos"))
+
+-#= link_to select(:controller, params[:format], options_for_select([["Pontos", "1"], ["Nível", "2"], ["Quest", "3"]]))
 
 %table.table.table-striped
   %tr
@@ -16,9 +28,8 @@ Selecione a forma de exibição:
       %strong Username
     %th
       %strong Score
-    - @usuarios.each do |usuario|
-      %tr
-        %td= usuario.name
-        %td= usuario.username
-        %td= usuario.score
-
+      - @usuarios.each do |usuario|
+        %tr
+          %td= usuario.name
+          %td= usuario.username
+          %td= usuario.score

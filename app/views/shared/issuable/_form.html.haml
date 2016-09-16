@@ -83,6 +83,11 @@
       &nbsp;
       - if can? current_user, :admin_label, issuable.project
         = link_to 'Create new label', new_namespace_project_label_path(issuable.project.namespace, issuable.project), target: :blank
+  .form-group
+    = f.label :nivel, class: 'control-label'
+    .col-sm-10
+      = f.text_field :nivel
+      (fácil, médio, difícil)
 
 - if issuable.can_move?(current_user)
   %hr

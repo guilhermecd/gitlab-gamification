@@ -32,6 +32,6 @@
     %th
     - @quests.each do |quest|
       %tr
-        %td= link_to quest.nome_quest, 'description'
+        %td= link_to quest.nome_quest, description_path(quest)
         %td= quest.nivels_id
         %td= quest.valor_pontos

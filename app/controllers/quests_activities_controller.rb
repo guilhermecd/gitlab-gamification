@@ -48,16 +48,13 @@ class QuestsActivitiesController < ApplicationController
 
   #DESCRIPT /quests_activities/description
   def description
-    sql = 'SELECT * 
-           FROM quests_activities 
-           WHERE quests_id = ' + '1'
-    print "skoakoskoakosaokskoaoksokakosakosokaoksaok-- "
-
+    sql = 'SELECT *
+           FROM quests_activities
+           WHERE quests_id = ' + params[:format]
     @quests_activities = QuestsActivity.find_by_sql([sql])
-    #@quests_activities = QuestsActivity.find(params[:quests_id])
+    #@quests_activities = QuestsActivity.find(params[:description])
     # @quests_activities = QuestsActivity.all
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quests_activity
