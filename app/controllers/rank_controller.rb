@@ -1,13 +1,19 @@
 class RankController < ApplicationController
   def show
-    print "aokskaoskaosokaoksokaokskoa\n\n\n\n\n\n"
-    puts  params
-    print "Algo? \n"
-    sql = 'SELECT *
-    FROM users
-    ORDER BY score DESC
-    LIMIT 10;'
-    @usuarios = User.find_by_sql([sql])
+    if params[:format] == "ponto"
+	    sql = 'SELECT *
+	    FROM users 
+	    ORDER BY score DESC;'
+   		@usuarios = User.find_by_sql([sql])
+   	end
+   	if params[:format] == "nivel"
+	    sql = 'SELECT *
+	    FROM users 
+	    ORDER BY nivel DESC;'
+   		@usuarios = User.find_by_sql([sql])
+   	end
   end
 
 end
+
+#  @current_user.nivel.to_s + ' 

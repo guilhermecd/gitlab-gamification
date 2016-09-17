@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :quests
   resources :nivels
   get "rank" => "rank#show"
+  post "rank" => "rank#show"
   post "description" => "quests_activities#description"
   get "description" => "quests_activities#description"
 

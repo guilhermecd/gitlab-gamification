@@ -3,7 +3,11 @@ class QuestsController < ApplicationController
 
   # GET /quests
   def index
-    @quests = Quest.all
+    sql = 'SELECT nivels.nome_nivel, quests.nome_quest, quests.nivels_id, quests.valor_pontos, quests.id
+           FROM quests, nivels 
+           WHERE quests.id = nivels.id '
+    @quests = Quest.find_by_sql([sql])
+    #@quests = Quest.all
   end
 
   # GET /quests/1

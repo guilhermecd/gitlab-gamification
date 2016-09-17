@@ -10,26 +10,29 @@ Selecione a forma de exibição:
 -#      %td= opt
 -#      %td= opt
 
-%select
-  %option{:value => "ponto", :selected => params[:format] == "ponto"}= "Pontos"
-  %option{:value => "nivel", :selected => params[:format] == "nivel"}= "Nível"
-  %option{:value => "quest", :selected => params[:format] == "quest"}= "Quest"
-  - 
+/ %select.teste
+/   %option{:value => "ponto", :selected => params[:format] == "ponto"}= "Pontos"
+/   %option{:value => "nivel", :selected => params[:format] == "nivel"}= "Nível"
+/   %option{:value => "quest", :selected => params[:format] == "quest"}= "Quest"
+%p
+%td= link_to "PONTO", rank_path("ponto")
+%p
+%td= link_to "NÍVEL", rank_path("nivel")
 
--#= select_tag :param_name, options_for_select([['Ponto', 'ponto'], ['Nível', 'nivel'], ['Quest', 'quest']], rank_path("pontos"))
-
--#= link_to select(:controller, params[:format], options_for_select([["Pontos", "1"], ["Nível", "2"], ["Quest", "3"]]))
-
-%table.table.table-striped
-  %tr
-    %th
-      %strong Name
-    %th
-      %strong Username
-    %th
-      %strong Score
-      - @usuarios.each do |usuario|
-        %tr
-          %td= usuario.name
-          %td= usuario.username
-          %td= usuario.score
+- if @usuarios != nil
+  %table.table.table-striped
+    %tr
+      %th
+        %strong Name
+      %th
+        %strong Username
+      %th
+        %strong Score
+      %th 
+        %strong Nível
+        - @usuarios.each do |usuario|
+          %tr
+            %td= usuario.name
+            %td= usuario.username
+            %td= usuario.score
+            %td= usuario.nivel
