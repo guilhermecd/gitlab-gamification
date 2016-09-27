@@ -1,24 +1,7 @@
 - page_title      'Quest'
-- header_title    'Quest'
+- header_title    'Quest', quests_path
 
-/ %table
-/   %thead
-/     %tr
-/       %th Nome quest
-/       %th Nivels
-/       %th Valor pontos
 
-/   %tbody
-/     - @quests.each do |quest|
-/       %tr
-/         %td= quest.nome_quest
-/         %td= quest.nivels_id
-/         %td= quest.valor_pontos
-/         %td= link_to 'surehow', quest
-/         %td= link_to 'Edit', edit_quest_path(quest)
-/         %td= link_to 'Destroy', quest, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-/ %br
 
 / = link_to 'New Quest', new_quest_path
 %table.table.table-striped
@@ -32,6 +15,12 @@
     %th
     - @quests.each do |quest|
       %tr
-        %td= link_to quest.nome_quest, description_path(quest.id)
+        - if quest.id <= current_user.nivel
+          %td
+            =link_to quest.nome_quest, description_path(quest.id), :class => "btn btn-danger" 
+            %span.label.label-success Quest Liberada
+        - else 
+          %td 
+            = link_to quest.nome_quest, description_path(quest.id), :class => "btn btn-danger"           
         %td= quest.nome_nivel
         %td= quest.valor_pontos

@@ -1,8 +1,8 @@
-- page_title      'Rank'
-- header_title    'Rank'
+- page_title      'Rank' 
+- header_title    'Rank', rank_path
 
 %h1 Rank
-Selecione a forma de exibição:
+%strong Selecione a forma de exibição:
 -#%select#opcao
 -#  - @teste.each do |opt|
 -#    %tr
@@ -10,14 +10,29 @@ Selecione a forma de exibição:
 -#      %td= opt
 -#      %td= opt
 
+:css
+  .btn-danger{
+    width:100%;
+    text-align:center;
+    / border-bottom:2px solid red !important;
+  }
+
 / %select.teste
 /   %option{:value => "ponto", :selected => params[:format] == "ponto"}= "Pontos"
 /   %option{:value => "nivel", :selected => params[:format] == "nivel"}= "Nível"
 /   %option{:value => "quest", :selected => params[:format] == "quest"}= "Quest"
+
+
 %p
-%td= link_to "PONTO", rank_path("ponto")
+%td= link_to "PONTO", rank_path("ponto") ,:class => "btn btn-danger" 
 %p
-%td= link_to "NÍVEL", rank_path("nivel")
+%td= link_to "NÍVEL", rank_path("nivel") ,:class => "btn btn-danger" 
+
+/ = link_to user_path(@user, :atom, { private_token: current_user.private_token }), class: 'btn btn-gray' do
+/   = icon('rss')
+
+
+
 
 - if @usuarios != nil
   %table.table.table-striped
@@ -32,7 +47,7 @@ Selecione a forma de exibição:
         %strong Nível
         - @usuarios.each do |usuario|
           %tr
-            %td= usuario.name
+            %td= link_to usuario.name, user_path(usuario)
             %td= usuario.username
             %td= usuario.score
             %td= usuario.nivel

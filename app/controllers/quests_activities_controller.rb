@@ -50,7 +50,9 @@ class QuestsActivitiesController < ApplicationController
   def description
     sql = 'SELECT *
            FROM quests_activities
-           WHERE quests_id = ' + params[:format]
+           WHERE quests_id = ' + params[:format] +
+           ' AND quests_activities.quests_id <= ' +  @current_user.nivel.to_s
+    print sql
     @quests_activities = QuestsActivity.find_by_sql([sql])
     #@quests_activities = QuestsActivity.find(params[:description])
     # @quests_activities = QuestsActivity.all
