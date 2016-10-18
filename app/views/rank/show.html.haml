@@ -27,13 +27,9 @@
 %td= link_to "PONTO", rank_path("ponto") ,:class => "btn btn-danger" 
 %p
 %td= link_to "NÍVEL", rank_path("nivel") ,:class => "btn btn-danger" 
-
 / = link_to user_path(@user, :atom, { private_token: current_user.private_token }), class: 'btn btn-gray' do
 /   = icon('rss')
-
-
-
-
+- i = 1
 - if @usuarios != nil
   %table.table.table-striped
     %tr
@@ -48,6 +44,27 @@
         - @usuarios.each do |usuario|
           %tr
             %td= link_to usuario.name, user_path(usuario)
-            %td= usuario.username
-            %td= usuario.score
-            %td= usuario.nivel
+            %td= link_to usuario.username, user_path(usuario)
+            - if @control == 'ponto'
+              %td
+                -if i < 5
+                  %span.label.label-danger
+                    = usuario.score
+                  %span.label.label-warning
+                    = icon ('star-o fw')
+                -if i >= 5
+                  %strong
+                    = usuario.score
+              %td= usuario.nivel
+            - if @control == 'nivel' 
+              %td= usuario.score
+              %td
+                -if i < 5
+                  %span.label.label-danger
+                    = usuario.nivel
+                  %span.label.label-warning
+                    = icon ('star-o fw')                    
+                -if i >= 5
+                  %strong
+                    = usuario.nivel
+          - i = i + 1                  

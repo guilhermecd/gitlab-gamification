@@ -1,4 +1,18 @@
 %ul.nav.nav-sidebar
+  = nav_link() do
+    = link_to "/rank", title: 'Pontos', data: {placement: 'bottom'} do
+      Pontos   
+      = icon('flash fw')
+      %span
+        = current_user.score
+
+  = nav_link() do
+    = link_to "/rank", title: 'Nível', data: {placement: 'bottom'} do
+      Nível   
+      = icon('star-o fw')
+      %span
+        = current_user.nivel        
+
   = nav_link(path: ['root#index', 'projects#trending', 'projects#starred', 'dashboard/projects#index'], html_options: {class: 'home'}) do
     = link_to dashboard_projects_path, title: 'Projects' do
       = icon('bookmark fw')

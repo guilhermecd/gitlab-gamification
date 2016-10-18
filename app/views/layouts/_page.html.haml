@@ -3,12 +3,14 @@
     .header-logo 
       %a#logo
         = brand_header_logo
-      = link_to root_path, class: 'gitlab-text-container-link', title: 'Nível', id: 'js-shortcuts-home' do
+      = link_to root_path, class: 'gitlab-text-container-link', title: 'Home', id: 'js-shortcuts-home' do
         .gitlab-text-container
-          %h3 
-            Gitlab
-            = icon('star-o fw')
-            = current_user.nivel
+          %h3
+            GitLab
+          / %h3 
+          /   Nível
+          /   = icon('star-o fw')
+          /   = current_user.nivel
 
     - if defined?(sidebar) && sidebar
       = render "layouts/nav/#{sidebar}"
