@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   post "rank" => "rank#show"
   post "description" => "quests_activities#description"
   get "description" => "quests_activities#description"
-  # post "activity" => "quests_activities#activity"
-  # get "activity" => "quests_activities#activity"
+  post "activity" => "quests_activities#activity"
+  get "activity" => "quests_activities#activity"
 
 
   if Gitlab::Sherlock.enabled?

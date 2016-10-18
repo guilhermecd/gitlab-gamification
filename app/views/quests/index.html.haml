@@ -21,7 +21,7 @@
             %span.label.label-success Quest Liberada
         - else 
           %td 
-            = link_to quest.nome_quest, description_path(quest.id), :class => "btn btn-danger"    
+            = link_to quest.nome_quest, description_path(quest.id), :class => "btn btn-danger"   
             %span.label.label-danger Quest Bloqueada
         %td= quest.nome_nivel
         %td= quest.valor_pontos

@@ -1,6 +1,6 @@
 class QuestsActivitiesController < ApplicationController
   before_action :set_quests_activity, only: [:show, :edit, :update, :destroy]
-
+  $main_quest = '0'
   # GET /quests_activities
   def index
     @quests_activities = QuestsActivity.all
@@ -53,37 +53,26 @@ class QuestsActivitiesController < ApplicationController
            WHERE quests_id = ' + params[:format] +
            ' AND quests_activities.quests_id <= ' +  @current_user.nivel.to_s
     @quests_activities = QuestsActivity.find_by_sql([sql])
+    $main_quest = params[:format]
 
-    @id_current =  params[:format]
-
-    print "\n\n\n\n\n"
-    print @id_current
-   print "\n\n\n\n\n"
-
-    sql2 = 'SELECT *
-           FROM quests_activities
-           WHERE id = ' + params[:format]
-    
-    @activities = QuestsActivity.find_by_sql([sql2])
-    
     #@quests_activities = QuestsActivity.find(params[:description])
     # @quests_activities = QuestsActivity.all
   end
 
-  # #activity /quests_activities/description
-  # def activity
-  #   sql = 'SELECT *
-  #          FROM quests_activities
-  #          WHERE id = ' + params[:format]
+  #activity /quests_activities/description
+  def activity
+    sql = 'SELECT *
+           FROM quests_activities
+           WHERE id = ' + params[:format]
+    @activities = QuestsActivity.find_by_sql([sql])
     
-  #   @activities = QuestsActivity.find_by_sql([sql])
-
-  #   sql2 = 'SELECT *
-  #          FROM quests_activities
-  #          WHERE quests_id = ' + params[:format] +
-  #          ' AND quests_activities.quests_id <= ' +  @current_user.nivel.to_s
-  #   @quests_activities = QuestsActivity.find_by_sql([sql2])
-  # end
+    @current_quest = params[:format]
+    sql2 = 'SELECT *
+           FROM quests_activities
+           WHERE quests_id = ' + $main_quest +
+           ' AND quests_activities.quests_id <= ' +  @current_user.nivel.to_s
+    @quests_activities = QuestsActivity.find_by_sql([sql2])    
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

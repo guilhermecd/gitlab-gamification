@@ -1,35 +1,39 @@
-/ - header_title    'Descrição das Atividades'
+- header_title    'Descrição das Tarefas'
+//        / = link_to activity_path(quests_activity.id) do
 
-/ %head
-/   %title Bootstrap Case
-/   %meta{:charset => "utf-8"}/
-/   %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-/   %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
-/   %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}
-/   %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
-/ %body
-/   .container
-/     %h3 Tarefas
-/     %ul.nav.nav-pills.nav-stacked
-/       %li.active
-/       - @quests_activities.each do |quests_activity|
-/         %li
-/           %a{"data-toggle" => "tab", class: ("active" unless params[:scope])} 
-/             = link_to activity_path(quests_activity.id) do
-/               Tarefa
-/               %td= quests_activity.id
-/         -if @control == quests_activity.id.to_s
-/           %table.table.table-striped
-/             %tr
-/               %th
-/                 %strong Tarefa
-/               %th
-/                 %strong Pontuação      
-/               %th
-/                 %strong Descrição
-/               %th
-/               - @activities.each do |actv|
-/                 %tr
-/                   %td= actv.id
-/                   %td= actv.qtd_pontos
-/                   %td= actv.descricao_tarefa
+:css
+  .btn-success{
+    width:100%;
+    text-align:left;
+    / border-bottom:2px solid red !important;
+  }
+  .btn-danger{
+    text-align:center;
+    / border-bottom:2px solid red !important;
+  }  
+  .button.btn.btn-danger{
+    type: "button";
+  }
+%body
+  .container
+    %h3 Tarefas
+    %ul.nav.nav-pills.nav-stacked
+      %li.active
+      - @quests_activities.each do |quests_activity|
+        - teste = 'Tarefa '
+        - teste = teste  + quests_activity.id.to_s
+        %li
+          %a{"data-toggle" => "tab", class: ("active" unless params[:scope])} 
+            = link_to teste, activity_path(quests_activity.id), :class => "btn btn-success" 
+        -if @current_quest == quests_activity.id.to_s
+          %table.table.table-striped
+            %tr
+              %th
+                %strong Pontuação      
+              %th
+                %strong Descrição
+              %th
+              - @activities.each do |actv|
+                %tr
+                  %td= actv.qtd_pontos
+                  %td= actv.descricao_tarefa  
