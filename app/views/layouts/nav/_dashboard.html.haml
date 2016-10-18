@@ -1,11 +1,10 @@
 %ul.nav.nav-sidebar
   = nav_link() do
-    = link_to "/rank", title: 'Pontos', data: {placement: 'bottom'} do
+    = link_to "users_has_quests_activities", title: 'Pontos', data: {placement: 'bottom'} do
       Pontos   
       = icon('flash fw')
       %span
         = current_user.score
-
   = nav_link() do
     = link_to "/rank", title: 'Nível', data: {placement: 'bottom'} do
       Nível   
