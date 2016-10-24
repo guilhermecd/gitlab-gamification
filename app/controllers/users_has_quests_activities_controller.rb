@@ -3,7 +3,8 @@ class UsersHasQuestsActivitiesController < ApplicationController
 
   # GET /users_has_quests_activities
   def index
-    @users_has_quests_activities = UsersHasQuestsActivity.all
+    sql = 'SELECT * FROM users_has_quests_activities WHERE users_id= ' + @current_user.id.to_s
+    @users_has_quests_activities = UsersHasQuestsActivity.find_by_sql([sql])   
   end
 
   # GET /users_has_quests_activities/1
