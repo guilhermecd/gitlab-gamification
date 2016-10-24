@@ -3,9 +3,8 @@
 %table.table.table-striped
   %tr
     %th
+    - if @users_has_quests_activities.size > 0
       %strong Lista de Tarefas     
-
-    - if @users_has_quests_activities != nil
       - @users_has_quests_activities.each do |users_actv|
         %tr
           %td= link_to "Tarefa " + users_actv.quests_activities_id.to_s,  quests_path()
