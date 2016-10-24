@@ -55,6 +55,9 @@ class QuestsActivitiesController < ApplicationController
     @quests_activities = QuestsActivity.find_by_sql([sql])
     $main_quest = params[:format]
 
+    sql2 = 'SELECT *
+           FROM users_has_quests_activities'
+    @quests_do = QuestsActivity.find_by_sql([sql2])   
     #@quests_activities = QuestsActivity.find(params[:description])
     # @quests_activities = QuestsActivity.all
   end

@@ -9,11 +9,10 @@
       - @users_has_quests_activities.each do |users_actv|
         - if current_user.id == users_actv.users_id
           %tr
-            %td= link_to "Tarefa " + users_actv.quests_activities_id.to_s,  activity_path(users_actv.quests_activities_id)
+            %td= link_to "Tarefa " + users_actv.quests_activities_id.to_s,  quests_path()
             %td
               .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", :role => "progressbar", :style => "width:100%"} 
                 100% Completo
-    
     -else 
       %h3
         Usuário não realizou nenhuma tarefa

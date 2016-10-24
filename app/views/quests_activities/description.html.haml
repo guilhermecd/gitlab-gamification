@@ -6,31 +6,38 @@
     / border-bottom:2px solid red !important;
   }
 
-%body
-  .container
-    %h3 Tarefas
-    %ul.nav.nav-pills.nav-stacked
-      %li.active
-      - @quests_activities.each do |quests_activity|
-        - teste = 'Tarefa '
-        - teste = teste  + quests_activity.id.to_s
-        %li
-          %a{"data-toggle" => "tab", class: ("active" unless params[:scope])} 
-            = link_to teste, activity_path(quests_activity.id), :class => "btn btn-success" 
+/ %body
+/   .container
+/     %h3 Tarefas
+/     %ul.nav.nav-pills.nav-stacked
+/       %li.active
+/       - @quests_activities.each do |quests_activity|
+/         - teste = 'Tarefa '
+/         - teste = teste  + quests_activity.id.to_s
+/         %li
+/           %a{"data-toggle" => "tab", class: ("active" unless params[:scope])} 
+/             = link_to teste, activity_path(quests_activity.id), :class => "btn btn-success" 
 
-
-/ %table.table.table-striped
-/   %tr
-/     %th
-/       %strong Tarefa
-/     %th
-/       %strong Pontuação      
-/     %th
-/       %strong Descrição
-/     %th
-
-/     - @quests_activities.each do |quests_activity|
-/       %tr
-/         %td= quests_activity.id
-/         %td= quests_activity.qtd_pontos
-/         %td= quests_activity.descricao_tarefa
+- i = 0
+%table.table.table-striped
+  %tr
+    %th
+      %strong Tarefa
+    %th
+      %strong Pontuação      
+    %th
+      %strong Descrição
+    %th
+    - @quests_activities.each do |quests_activity|
+      %tr
+        -@quests_do.each do |key|
+          -if key.users_id == current_user.id and key.quests_activities_id == quests_activity.id
+            - i = 1
+        %td
+          = quests_activity.id
+          -if i == 1
+            %span.label.label-success
+              = icon('check fw')
+        %td= quests_activity.qtd_pontos
+        %td= quests_activity.descricao_tarefa
+        - i = 0
