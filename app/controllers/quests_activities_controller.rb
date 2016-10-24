@@ -53,7 +53,7 @@ class QuestsActivitiesController < ApplicationController
            WHERE quests_id = ' + params[:format] +
            ' AND quests_activities.quests_id <= ' +  @current_user.nivel.to_s
     @quests_activities = QuestsActivity.find_by_sql([sql])
-    $main_quest = params[:format]
+    @main_quest = params[:format]
 
     sql2 = 'SELECT *
            FROM users_has_quests_activities'

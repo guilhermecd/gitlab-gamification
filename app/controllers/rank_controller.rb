@@ -3,14 +3,14 @@ class RankController < ApplicationController
     if params[:format] == "ponto"
 	    sql = 'SELECT *
 	    FROM users 
-	    ORDER BY score DESC;'
+	    ORDER BY score DESC, updated_at DESC;'
    		@usuarios = User.find_by_sql([sql])
       @control = 'ponto'
    	end
    	if params[:format] == "nivel"
 	    sql = 'SELECT *
 	    FROM users 
-	    ORDER BY nivel DESC;'
+	    ORDER BY nivel DESC, updated_at DESC;'
    		@usuarios = User.find_by_sql([sql])
       @control = 'nivel'
    	end

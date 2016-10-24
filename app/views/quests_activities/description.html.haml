@@ -34,7 +34,7 @@
           -if key.users_id == current_user.id and key.quests_activities_id == quests_activity.id
             - i = 1
         %td
-          = quests_activity.id
+          = "Quest" + @main_quest.to_s + "_" + quests_activity.id.to_s
           -if i == 1
             %span.label.label-success
               = icon('check fw')
