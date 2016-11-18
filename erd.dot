@@ -1,0 +1,874 @@
+digraph Gitlab {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+rankdir = "TB";
+label = "Gitlab domain model\n\n";
+m_AbuseReport [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">AbuseReport</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="message">message <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+</table>
+>];
+"m_ActiveRecord::SchemaMigration" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ActiveRecord::SchemaMigration</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="version">version <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+"m_ActsAsVotable::Vote" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ActsAsVotable::Vote</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="votable_type">votable_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="vote_flag">vote_flag <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="vote_scope">vote_scope <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="vote_weight">vote_weight <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="voter_type">voter_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Appearance [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Appearance</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="header_logo">header_logo <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="logo">logo <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_ApplicationSetting [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ApplicationSetting</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="admin_notification_email">admin_notification_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="after_sign_out_path">after_sign_out_path <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="akismet_api_key">akismet_api_key <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="akismet_enabled">akismet_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="container_registry_token_expire_delay">container_registry_token_expire_delay <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="default_branch_protection">default_branch_protection <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="default_group_visibility">default_group_visibility <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="default_project_visibility">default_project_visibility <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="default_projects_limit">default_projects_limit <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="default_snippet_visibility">default_snippet_visibility <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="disabled_oauth_sign_in_sources">disabled_oauth_sign_in_sources <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="email_author_in_body">email_author_in_body <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="gravatar_enabled">gravatar_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="health_check_access_token">health_check_access_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="help_page_text">help_page_text <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="home_page_url">home_page_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="import_sources">import_sources <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="max_artifacts_size">max_artifacts_size <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="max_attachment_size">max_attachment_size <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_enabled">metrics_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_host">metrics_host <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_method_call_threshold">metrics_method_call_threshold <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_packet_size">metrics_packet_size <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_pool_size">metrics_pool_size <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_port">metrics_port <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_sample_interval">metrics_sample_interval <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="metrics_timeout">metrics_timeout <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="recaptcha_enabled">recaptcha_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="recaptcha_private_key">recaptcha_private_key <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="recaptcha_site_key">recaptcha_site_key <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="repository_checks_enabled">repository_checks_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="require_two_factor_authentication">require_two_factor_authentication <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="restricted_signup_domains">restricted_signup_domains <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="restricted_visibility_levels">restricted_visibility_levels <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="runners_registration_token">runners_registration_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="send_user_confirmation_email">send_user_confirmation_email <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="sentry_dsn">sentry_dsn <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="sentry_enabled">sentry_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="session_expire_delay">session_expire_delay <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="shared_runners_enabled">shared_runners_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="shared_runners_text">shared_runners_text <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_text">sign_in_text <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="signin_enabled">signin_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="signup_enabled">signup_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="two_factor_grace_period">two_factor_grace_period <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="user_oauth_applications">user_oauth_applications <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="version_check_enabled">version_check_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_AuditEvent [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">AuditEvent</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="author_id">author_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="details">details <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="entity_id">entity_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="entity_type">entity_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_BroadcastMessage [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">BroadcastMessage</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="color">color <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="ends_at">ends_at <font face="Arial Italic" color="grey60">datetime ∗</font></td></tr>
+  <tr><td align="left" width="130" port="font">font <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="message">message <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="starts_at">starts_at <font face="Arial Italic" color="grey60">datetime ∗</font></td></tr>
+</table>
+>];
+"m_Ci::Commit" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ci::Commit</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="before_sha">before_sha <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="committed_at">committed_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="duration">duration <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="finished_at">finished_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="gl_project_id">gl_project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="push_data">push_data <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="ref">ref <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="sha">sha <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="started_at">started_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="tag">tag <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="yaml_errors">yaml_errors <font face="Arial Italic" color="grey60">text</font></td></tr>
+</table>
+>];
+"m_Ci::Runner" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ci::Runner</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="active">active <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="architecture">architecture <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="contacted_at">contacted_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="is_shared">is_shared <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="platform">platform <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="revision">revision <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="run_untagged">run_untagged <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="version">version <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+"m_Ci::RunnerProject" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ci::RunnerProject</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="gl_project_id">gl_project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+"m_Ci::Trigger" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ci::Trigger</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="deleted_at">deleted_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="gl_project_id">gl_project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+"m_Ci::TriggerRequest" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ci::TriggerRequest</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="variables">variables <font face="Arial Italic" color="grey60">text</font></td></tr>
+</table>
+>];
+"m_Ci::Variable" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Ci::Variable</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="encrypted_value">encrypted_value <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_value_iv">encrypted_value_iv <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_value_salt">encrypted_value_salt <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="gl_project_id">gl_project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="key">key <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="value">value <font face="Arial Italic" color="grey60">text</font></td></tr>
+</table>
+>];
+m_CommitStatus [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CommitStatus</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="allow_failure">allow_failure <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="artifacts_file">artifacts_file <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="artifacts_metadata">artifacts_metadata <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="commands">commands <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="coverage">coverage <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="deploy">deploy <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="erased_at">erased_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="erased_by_id">erased_by_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="finished_at">finished_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="gl_project_id">gl_project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="job_id">job_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="options">options <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="ref">ref <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="runner_id">runner_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="stage">stage <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="stage_idx">stage_idx <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="started_at">started_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="tag">tag <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="target_url">target_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="trace">trace <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="trigger_request_id">trigger_request_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+m_DeployKeysProject [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">DeployKeysProject</font></td></tr>
+</table>
+>];
+"m_Doorkeeper::AccessGrant" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Doorkeeper::AccessGrant</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="expires_in">expires_in <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="redirect_uri">redirect_uri <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="resource_owner_id">resource_owner_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="revoked_at">revoked_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="scopes">scopes <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+"m_Doorkeeper::AccessToken" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Doorkeeper::AccessToken</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="expires_in">expires_in <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="refresh_token">refresh_token <font face="Arial Italic" color="grey60">string U</font></td></tr>
+  <tr><td align="left" width="130" port="resource_owner_id">resource_owner_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="revoked_at">revoked_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="scopes">scopes <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+"m_Doorkeeper::Application" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Doorkeeper::Application</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="owner_type">owner_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="redirect_uri">redirect_uri <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="scopes">scopes <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="secret">secret <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="uid">uid <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+m_Email [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Email</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+m_Event [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Event</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="action">action <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="data">data <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="pontuacao_obtida">pontuacao_obtida <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="target_type">target_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_ForkedProjectLink [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ForkedProjectLink</font></td></tr>
+</table>
+>];
+m_Identity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Identity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="extern_uid">extern_uid <font face="Arial Italic" color="grey60">string U</font></td></tr>
+  <tr><td align="left" width="130" port="provider">provider <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Issue [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Issue</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="branch_name">branch_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="confidential">confidential <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="deleted_at">deleted_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="iid">iid <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="nivel">nivel <font face="Arial Italic" color="grey60">string (50)</font></td></tr>
+  <tr><td align="left" width="130" port="position">position <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Key [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Key</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="fingerprint">fingerprint <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="key">key <font face="Arial Italic" color="grey60">text ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="public">public <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Label [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Label</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="color">color <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="template">template <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+m_LabelLink [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LabelLink</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="target_type">target_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_LfsObject [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LfsObject</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="file">file <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="oid">oid <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="size">size <font face="Arial Italic" color="grey60">integer (8) ∗</font></td></tr>
+</table>
+>];
+m_LfsObjectsProject [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LfsObjectsProject</font></td></tr>
+</table>
+>];
+m_Member [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Member</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="access_level">access_level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="invite_accepted_at">invite_accepted_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="invite_email">invite_email <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="invite_token">invite_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="notification_level">notification_level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="source_type">source_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_MergeRequest [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">MergeRequest</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="deleted_at">deleted_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="iid">iid <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="locked_at">locked_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="merge_commit_sha">merge_commit_sha <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="merge_error">merge_error <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="merge_params">merge_params <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="merge_status">merge_status <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="merge_when_build_succeeds">merge_when_build_succeeds <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="position">position <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="source_branch">source_branch <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="target_branch">target_branch <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_MergeRequestDiff [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">MergeRequestDiff</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="base_commit_sha">base_commit_sha <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="real_size">real_size <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="st_commits">st_commits <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="st_diffs">st_diffs <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Milestone [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Milestone</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="iid">iid <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+m_Namespace [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Namespace</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="avatar">avatar <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="path">path <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="share_with_group_lock">share_with_group_lock <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="visibility_level">visibility_level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_Nivel [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Nivel</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="nome_nivel">nome_nivel <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="qtd_pontos">qtd_pontos <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+m_Note [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Note</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="attachment">attachment <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="commit_id">commit_id <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="is_award">is_award <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="line_code">line_code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="note">note <font face="Arial Italic" color="grey60">text ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="noteable_type">noteable_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="st_diff">st_diff <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="system">system <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+</table>
+>];
+m_NotificationSetting [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NotificationSetting</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="level">level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="source_type">source_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_OauthAccessToken [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">OauthAccessToken</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="expires_in">expires_in <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="refresh_token">refresh_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="revoked_at">revoked_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="scopes">scopes <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Project [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Project</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="archived">archived <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="avatar">avatar <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="build_allow_git_fetch">build_allow_git_fetch <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="build_coverage_regex">build_coverage_regex <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="build_timeout">build_timeout <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="builds_enabled">builds_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="ci_id">ci_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="commit_count">commit_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="container_registry_enabled">container_registry_enabled <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="import_error">import_error <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="import_source">import_source <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="import_status">import_status <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="import_type">import_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="import_url">import_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="issues_enabled">issues_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="issues_tracker">issues_tracker <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="issues_tracker_id">issues_tracker_id <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="last_activity_at">last_activity_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_repository_check_at">last_repository_check_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_repository_check_failed">last_repository_check_failed <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="main_language">main_language <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="merge_requests_enabled">merge_requests_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="path">path <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="pending_delete">pending_delete <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="public_builds">public_builds <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="pushes_since_gc">pushes_since_gc <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="repository_size">repository_size <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="runners_token">runners_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="shared_runners_enabled">shared_runners_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="snippets_enabled">snippets_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="star_count">star_count <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="visibility_level">visibility_level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="wiki_enabled">wiki_enabled <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+</table>
+>];
+m_ProjectGroupLink [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProjectGroupLink</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="group_access">group_access <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_ProjectImportData [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProjectImportData</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="data">data <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_credentials">encrypted_credentials <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_credentials_iv">encrypted_credentials_iv <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_credentials_salt">encrypted_credentials_salt <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_ProtectedBranch [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProtectedBranch</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="developers_can_push">developers_can_push <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Quest [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Quest</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="nivels_id">nivels_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="nome_quest">nome_quest <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="valor_pontos">valor_pontos <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_QuestsActivity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">QuestsActivity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="action">action <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="descricao_tarefa">descricao_tarefa <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="label">label <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="parent_activity">parent_activity <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="qtd_pontos">qtd_pontos <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="quests_id">quests_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="target_type">target_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Release [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Release</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="tag">tag <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_SentNotification [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SentNotification</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="commit_id">commit_id <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="line_code">line_code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="noteable_type">noteable_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="reply_key">reply_key <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
+m_Service [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Service</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="active">active <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="build_events">build_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="category">category <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="default">default <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="issues_events">issues_events <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="merge_requests_events">merge_requests_events <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="note_events">note_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="properties">properties <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="push_events">push_events <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="tag_push_events">tag_push_events <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="template">template <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="wiki_page_events">wiki_page_events <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_Snippet [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Snippet</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="content">content <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="file_name">file_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="visibility_level">visibility_level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_SpamLog [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SpamLog</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="noteable_type">noteable_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="source_ip">source_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="user_agent">user_agent <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="via_api">via_api <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_Subscription [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Subscription</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="subscribable_type">subscribable_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="subscribed">subscribed <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_Todo [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Todo</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="action">action <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="commit_id">commit_id <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="target_type">target_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="admin">admin <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="authentication_token">authentication_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="avatar">avatar <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="bio">bio <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="can_create_group">can_create_group <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="can_create_team">can_create_team <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="color_scheme_id">color_scheme_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="confirmation_sent_at">confirmation_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="confirmation_token">confirmation_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="confirmed_at">confirmed_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="consumed_timestep">consumed_timestep <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="dashboard">dashboard <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_otp_secret">encrypted_otp_secret <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_otp_secret_iv">encrypted_otp_secret_iv <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_otp_secret_salt">encrypted_otp_secret_salt <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_password">encrypted_password <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="external">external <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="failed_attempts">failed_attempts <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="hide_no_password">hide_no_password <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="hide_no_ssh_key">hide_no_ssh_key <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="hide_project_limit">hide_project_limit <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="last_credential_check_at">last_credential_check_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="layout">layout <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="ldap_email">ldap_email <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="linkedin">linkedin <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="location">location <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="locked_at">locked_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="nivel">nivel <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="notification_email">notification_email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="notification_level">notification_level <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="otp_backup_codes">otp_backup_codes <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="otp_grace_period_started_at">otp_grace_period_started_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="otp_required_for_login">otp_required_for_login <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="password_automatically_set">password_automatically_set <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="password_expires_at">password_expires_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="project_view">project_view <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="projects_limit">projects_limit <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="public_email">public_email <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="remember_created_at">remember_created_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_sent_at">reset_password_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_token">reset_password_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="score">score <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="skype">skype <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="theme_id">theme_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="twitter">twitter <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="unconfirmed_email">unconfirmed_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="unlock_token">unlock_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="username">username <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="website_url">website_url <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_UsersHasQuestsActivity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">UsersHasQuestsActivity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="quests_activities_id">quests_activities_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="users_id">users_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_UsersStarProject [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">UsersStarProject</font></td></tr>
+</table>
+>];
+m_WebHook [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">WebHook</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="build_events">build_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="enable_ssl_verification">enable_ssl_verification <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="issues_events">issues_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="merge_requests_events">merge_requests_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="note_events">note_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="project_id">project_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="push_events">push_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="service_id">service_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="tag_push_events">tag_push_events <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="url">url <font face="Arial Italic" color="grey60">string (2000) ∗</font></td></tr>
+  <tr><td align="left" width="130" port="wiki_page_events">wiki_page_events <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+</table>
+>];
+  m_Note -> "m_ActsAsVotable::Vote" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> "m_ActsAsVotable::Vote" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  "m_Doorkeeper::Application" -> "m_Doorkeeper::AccessGrant" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  "m_Doorkeeper::Application" -> "m_Doorkeeper::AccessToken" [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  "m_Doorkeeper::Application" -> "m_Doorkeeper::Application" [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> "m_Doorkeeper::Application" [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Issue -> m_Subscription [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Label -> m_Subscription [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_Subscription [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_Issue [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Issue [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Issue [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Milestone -> m_Issue [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Issue -> m_Note [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_Note [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Snippet -> m_Note [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Issue -> m_LabelLink [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_LabelLink [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Issue -> m_Label [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Issue -> m_Todo [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_Todo [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Project -> m_Issue [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Issue -> m_Issue [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Milestone -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_MergeRequest -> m_Label [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Project -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_MergeRequest [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_MergeRequestDiff [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_Snippet [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_Project -> m_Snippet [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_CommitStatus [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  "m_Ci::Commit" -> m_CommitStatus [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  m_User -> m_CommitStatus [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_Project -> "m_Ci::Commit" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  "m_Ci::Commit" -> "m_Ci::TriggerRequest" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  "m_Ci::Runner" -> "m_Ci::RunnerProject" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> "m_Ci::RunnerProject" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  "m_Ci::Runner" -> m_Project [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  "m_Ci::Trigger" -> "m_Ci::TriggerRequest" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> "m_Ci::Trigger" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> "m_Ci::Variable" [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_Note [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_User -> m_Note [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_User -> m_Note [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Note -> m_Todo [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_User -> m_Member [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_User -> m_Member [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  m_Project -> m_Member [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_NotificationSetting [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_NotificationSetting [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_Namespace [arrowhead = "none", arrowtail = "none", weight = "3"];
+  m_User -> m_Key [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_User -> m_Email [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Identity [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Project [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_Project [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_Project [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_User -> m_Project [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_UsersStarProject [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Project [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_User -> m_Event [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_User -> m_Subscription [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_AbuseReport [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_SpamLog [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Todo [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_AbuseReport [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_AuditEvent [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_DeployKeysProject [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_Event [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_Issue -> m_Event [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_Event [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Project -> m_ForkedProjectLink [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_Project -> m_ForkedProjectLink [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Namespace -> m_Project [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_Project -> m_Service [arrowhead = "normal", arrowtail = "none", weight = "26"];
+  m_Project -> m_Project [style = "dotted", arrowhead = "none", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Project -> m_Project [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Project -> m_Label [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_Milestone [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_ProtectedBranch [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_UsersStarProject [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_Release [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_LfsObjectsProject [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_LfsObject [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Project -> m_ProjectGroupLink [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_Todo [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Project -> m_ProjectImportData [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_Label -> m_LabelLink [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_LfsObject -> m_LfsObjectsProject [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Milestone -> m_Label [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_Milestone -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_User -> m_OauthAccessToken [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  "m_Doorkeeper::Application" -> m_OauthAccessToken [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Project -> m_SentNotification [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Issue -> m_SentNotification [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_MergeRequest -> m_SentNotification [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Snippet -> m_SentNotification [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_SentNotification [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_Todo [arrowhead = "normal", arrowtail = "none", weight = "1"];
+}

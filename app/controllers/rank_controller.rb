@@ -15,7 +15,6 @@ class RankController < ApplicationController
       @control = 'nivel'
    	end
   end
-
 end
 
 #  @current_user.nivel.to_s + ' 

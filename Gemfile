@@ -345,3 +345,7 @@ gem "paranoia", "~> 2.0"
 # Health check
 gem 'health_check', '~> 1.5.1'
 
+group :development do
+  gem "rails-erd"
+end
+
